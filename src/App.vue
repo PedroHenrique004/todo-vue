@@ -20,11 +20,8 @@
         titulo: 'Ir para academia',
         finalizada: true,
       }
-    ],
+    ]
   })
-
-  
-
   const getTarefasPendentes = () => {
     return estado.tarefas.filter(tarefa => !tarefa.finalizada)
 
@@ -67,7 +64,7 @@
   <div class="container">
       <Cabecalho :tarefas-pendentes="getTarefasPendentes().length"/>
       <Formulario :trocarFiltro="evento => estado.filtro = evento.target.value " :tarefa-temp="estado.tarefaTemp" :edita-tarefa-temp="evento => estado.tarefaTemp = evento.target.value" :cadastra-tarefa="cadastraTarefa" />
-      <ListaDeTarefas :tarefas="getTarefasFiltradas()"/>  
+      <ListaDeTarefas :tarefas="getTarefasFiltradas()" :tarefas-pendentes="getTarefasPendentes().length" :statusFiltro="getTarefasPendentes().length"/>  
   </div>
 </template>
 
